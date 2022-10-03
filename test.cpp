@@ -268,10 +268,24 @@ void gr()
 	}
 	return;
 }
+void op(int*x,int k=1600)
+{	for(int i=0;i<k/64;i++)
+	{	for(int j=60;j>=0;j-=4)
+		{	int c=0;
+			for(int k=3;k>=0;k--)
+				c=c*2+x[i*64+j+k];
+			printf("%c",c>9?c-10+'a':c+'0');
+		}
+		if(i%5==4)printf("\n");
+		else printf(" ");
+	}
+	printf("\n");
+}
 int main()
 {   E.clear();
 	memset(rh,0,sizeof(rh));
 	gr();
-	for(int i=0;i<1600;i++)cout<<rM[i];
+	freopen("res.txt","w",stdout);
+	op(rM);
 	return 0;
 }
